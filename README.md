@@ -1,1 +1,2 @@
-# GGJ-Santiago-2024
+# Project EternalHorizon
+ 
