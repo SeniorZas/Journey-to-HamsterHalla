@@ -1,27 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfsq6s6m8rvbm"]
+[gd_scene load_steps=8 format=3 uid="uid://dfsq6s6m8rvbm"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ublfp"]
 [ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
+[ext_resource type="ArrayMesh" uid="uid://brbaqqqgoryxq" path="res://hampter.obj" id="2_p0hih"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_e3je5"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7msid"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ik4d"]
+albedo_color = Color(0.780392, 0.466667, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljlqn"]
 albedo_texture = ExtResource("2_6rj66")
 
 [sub_resource type="QuadMesh" id="QuadMesh_jdcs8"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ua68"]
+size = Vector3(1, 1.09961, 2.0462)
+
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_ublfp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_e3je5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_7msid")
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 0, 0)
+mesh = ExtResource("2_p0hih")
+surface_material_override/0 = SubResource("StandardMaterial3D_3ik4d")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0202243, -0.00582182)
@@ -35,8 +35,13 @@ transform = Transform3D(1, 0, 0, 0, 0.999818, 0.0190926, 0, -0.0190926, 0.999818
 
 [node name="EXPLOSION" type="Node3D" parent="."]
 transform = Transform3D(1.96455, 0, 0, 0, 1.96455, 0, 0, 0, 1.96455, 0, 0, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="EXPLOSION"]
 transform = Transform3D(1.56051, 0, 0, 0, 1.56051, 0, 0, 0, 1.56051, 0, 0.918408, -0.127817)
 material_override = SubResource("StandardMaterial3D_ljlqn")
 mesh = SubResource("QuadMesh_jdcs8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0498047, -0.0507507)
+shape = SubResource("BoxShape3D_7ua68")
