@@ -1,65 +1,67 @@
-extends RigidBody3D
+extends CharacterBody3D
 
-var mouse_sensitivity := 0.001
+const sense=.1
+var SPEED = 5.0
+const JUMP_VELOCITY = 4.5
 var twist_input := 0.0
 var pitch_input := 0.0
-const JUMP_POWER = 45
-var jump_num = 0
-@onready var twist_pivot := $TwistPivot
-@onready var pitch_pivot := $TwistPivot/PitchPivot
-@onready var ray := $RayCast3D
-@onready var ray2 := $RayCast3D2
-@onready var ray3 := $RayCast3D3
-@onready var camera := get_node("TwistPivot/PitchPivot/Camera3D")
+var stamina=300
 
+@onready var head = $Head
+@onready var camera = $Head/Camera3D
+@onready var text = $Head/Camera3D/Label3D 
 
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready()->void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	text.text= str(stamina)
+	pass
+	
+func _input(event: InputEvent) -> void:
+	if (event is InputEventMouseMotion):
+		rotate_y(deg_to_rad(-event.relative.x * sense))
+		head.rotate_x(deg_to_rad(-event.relative.y * sense))
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var input := Vector3.ZERO
-	var jump_vector:= Vector3.UP
-	var diagonal_vector := Vector3.UP + Vector3.LEFT
-	var diagonal_vector2 := Vector3.UP + Vector3.RIGHT
-	input.x = Input.get_axis("move_left","move_right")
-	input.z = Input.get_axis("move_forward", "move_backward")
-	apply_central_force(twist_pivot.basis * input * 1200.0 * delta)
-	
-	if ray.is_colliding():
-		jump_num =1
-	
-	if Input.is_action_just_pressed("jump") and jump_num > 0:
-		apply_central_force(jump_vector*JUMP_POWER*10)
-		jump_num -=1
-	
-	if Input.is_action_just_pressed("jump") and ray2.is_colliding() and not ray.is_colliding():
-		apply_central_force(diagonal_vector*JUMP_POWER*6)
-	if Input.is_action_just_pressed("jump") and ray3.is_colliding() and not ray.is_colliding():
-		apply_central_force(diagonal_vector2*JUMP_POWER*6)
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	if Input.is_action_pressed("Run_up") && stamina>0:
+		SPEED=15
+		stamina-=1
+		text.text = str(stamina)
+		if stamina<=0:
+			get_tree().quit()
+	else:
+		SPEED=5
+		if stamina<300:
+			stamina+=1
+			text.text= str(stamina)
 		
-	
+	# Handle jump.
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	twist_pivot.rotate_y(twist_input)
-	pitch_pivot	.rotate_x(pitch_input)
-	pitch_pivot.rotation.x = clamp( pitch_pivot.rotation.x, -0.5, 0.5)
+	head.rotate_y(twist_input)
+	head.rotate_x(pitch_input)
+	head.rotation.x = clamp(head.rotation.x, -0.5, 0.5)
 	twist_input = 0.0
 	pitch_input = 0.0
 
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
 
-
-	
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			twist_input = - event.relative.x * mouse_sensitivity
-			pitch_input = - event.relative.y * mouse_sensitivity
-			
-
-	
-	
+	move_and_slide()
