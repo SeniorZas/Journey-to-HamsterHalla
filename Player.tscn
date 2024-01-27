@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://fovrxdjmtn1u"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_ublfp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_e3je5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7msid"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_ublfp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_e3je5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_7msid")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0202243, -0.00582182)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.903425, 0.428746, 0, -0.428746, 0.903425, 0, 3.64559, 3.91068)
+fov = 64.3246
+
+[node name="Label3D" type="Label3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999818, 0.0190926, 0, -0.0190926, 0.999818, -0.857705, -0.689309, -1.34114)
