@@ -22,7 +22,6 @@ transform = Transform3D(0.15, 0, 0, 0, 3.062, 0, 0, 0, 0.15, -2.05276, 1, -0.004
 mesh = SubResource("BoxMesh_e6wji")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_frorh")

@@ -3,6 +3,8 @@ extends CharacterBody3D
 const sense=.1
 var SPEED = 5.0
 var JUMP_VELOCITY = 4.5
+var SPEED = 5
+const JUMP_VELOCITY = 4.5
 var twist_input := 0.0
 var pitch_input := 0.0
 var stamina=300
@@ -15,12 +17,15 @@ const raylength=10
 @onready var raycast1 = $Head/Raycasts/Raycast1
 @onready var raycast2 = $Head/Raycasts/Raycast2
 @onready var raycast3 = $Head/Raycasts/Raycast3
+@onready var explosion = $EXPLOSION
+@onready var playermodel =$MeshInstance3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 #funcion de inicio
 func _ready()->void:
+	explosion.visible=false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	text.text= str(stamina)
 	pass
@@ -32,13 +37,22 @@ func _input(event: InputEvent) -> void:
 		head.rotate_x(deg_to_rad(-event.relative.y * sense))
 		
 	pass
+	
+func is_dead():
+	playermodel.visible=false
+	SPEED = 0
+	explosion.visible = true
+	await get_tree().create_timer(2).timeout 
+	get_tree().quit()
+	
+	pass
+
 
 
 func _physics_process(delta):
 	if not is_on_floor():
 		JUMP_VELOCITY=4.5
 		velocity.y -= gravity * delta
-
 	if Input.is_action_pressed("ui_accept") and raycast2.is_colliding() and raycast1.is_colliding():
 		velocity.y = 3
 		body.rotate_object_local(Vector3(1,0,0), 0)
@@ -47,15 +61,16 @@ func _physics_process(delta):
 		velocity.y = 2
 	
 	# Capacidad de correr y stamina
-	if Input.is_action_pressed("Run_up") && stamina>0:
+	if Input.is_action_pressed("Run_up") && stamina>-100 && playermodel.visible==true:
 		SPEED=15
 		stamina-=1
 		text.text = str(stamina)
-		if stamina<=0:
-			get_tree().quit()
+		if stamina<=-100:
+			is_dead()
 	else:
-		SPEED=5
-		if stamina<300:
+	
+		if stamina<300 && playermodel.visible == true:
+			SPEED=5
 			stamina+=1
 			text.text= str(stamina)
 			
@@ -73,7 +88,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
