@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://fovrxdjmtn1u"]
+[gd_scene load_steps=7 format=3 uid="uid://dfsq6s6m8rvbm"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ublfp"]
+[ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e3je5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7msid"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljlqn"]
+albedo_texture = ExtResource("2_6rj66")
+
+[sub_resource type="QuadMesh" id="QuadMesh_jdcs8"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_ublfp")
@@ -26,3 +32,11 @@ fov = 64.3246
 
 [node name="Label3D" type="Label3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999818, 0.0190926, 0, -0.0190926, 0.999818, -0.857705, -0.689309, -1.34114)
+
+[node name="EXPLOSION" type="Node3D" parent="."]
+transform = Transform3D(1.96455, 0, 0, 0, 1.96455, 0, 0, 0, 1.96455, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EXPLOSION"]
+transform = Transform3D(1.56051, 0, 0, 0, 1.56051, 0, 0, 0, 1.56051, 0, 0.918408, -0.127817)
+material_override = SubResource("StandardMaterial3D_ljlqn")
+mesh = SubResource("QuadMesh_jdcs8")

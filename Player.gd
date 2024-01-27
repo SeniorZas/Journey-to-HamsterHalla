@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const sense=.1
-var SPEED = 5.0
+var SPEED = 0
 const JUMP_VELOCITY = 4.5
 var twist_input := 0.0
 var pitch_input := 0.0
@@ -10,6 +10,8 @@ var stamina=300
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var text = $Head/Camera3D/Label3D 
+@onready var explosion = $EXPLOSION
+@onready var playermodel =$MeshInstance3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -26,19 +28,26 @@ func _input(event: InputEvent) -> void:
 	pass
 
 func _physics_process(delta):
+	explosion.visible=false
+	if playermodel.visible==false:
+		explosion.visible=true
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	if Input.is_action_pressed("Run_up") && stamina>0:
+	if Input.is_action_pressed("Run_up") && stamina>-100:
 		SPEED=15
 		stamina-=1
 		text.text = str(stamina)
-		if stamina<=0:
+		if stamina<=-100:
+			playermodel.visible = false
+			SPEED = 0
+			await get_tree().create_timer(1.5).timeout 
 			get_tree().quit()
 	else:
-		SPEED=5
-		if stamina<300:
+	
+		if stamina<300 && playermodel.visible == true:
+			SPEED=5
 			stamina+=1
 			text.text= str(stamina)
 		
@@ -55,7 +64,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
