@@ -1,17 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://fovrxdjmtn1u"]
+[gd_scene load_steps=5 format=3 uid="uid://fovrxdjmtn1u"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ublfp"]
+[ext_resource type="ArrayMesh" uid="uid://cq3w7grqns4fn" path="res://Models/hampter.obj" id="2_fr6gg"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_e3je5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j7i1"]
+albedo_color = Color(0.780392, 0.466667, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7msid"]
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="Body" type="CharacterBody3D"]
 script = ExtResource("1_ublfp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_e3je5")
+[node name="Hampter" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 0, 0.0327577, 0)
+mesh = ExtResource("2_fr6gg")
+surface_material_override/0 = SubResource("StandardMaterial3D_6j7i1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0)
@@ -26,3 +29,13 @@ fov = 64.3246
 
 [node name="Label3D" type="Label3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999818, 0.0190926, 0, -0.0190926, 0.999818, -0.857705, -0.689309, -1.34114)
+
+[node name="Raycasts" type="Node3D" parent="Head"]
+
+[node name="Raycast1" type="RayCast3D" parent="Head/Raycasts"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="Raycast2" type="RayCast3D" parent="Head/Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, -0.282824)
+
+[node name="Raycast3" type="RayCast3D" parent="Head/Raycasts"]
