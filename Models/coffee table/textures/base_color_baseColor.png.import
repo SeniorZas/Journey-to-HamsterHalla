@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxn48l5r7d0y"
-path.s3tc="res://.godot/imported/Material.001_metallicRoughness.png-4b3c8c921c1fe5e58328a1a19bbee86b.s3tc.ctex"
+uid="uid://dtjlel2pyg6yk"
+path.s3tc="res://.godot/imported/base_color_baseColor.png-bc98d3b53c533252dbe032088d74f2ab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://TV/textures/Material.001_metallicRoughness.png"
-dest_files=["res://.godot/imported/Material.001_metallicRoughness.png-4b3c8c921c1fe5e58328a1a19bbee86b.s3tc.ctex"]
+source_file="res://Models/coffee table/textures/base_color_baseColor.png"
+dest_files=["res://.godot/imported/base_color_baseColor.png-bc98d3b53c533252dbe032088d74f2ab.s3tc.ctex"]
 
 [params]
 

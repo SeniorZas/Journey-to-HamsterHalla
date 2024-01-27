@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu2y15iqmto7p"]
+[gd_scene load_steps=3 format=3 uid="uid://b5l44qja8fvho"]
 
-[ext_resource type="Script" path="res://Main Menu.gd" id="1_pk6wl"]
+[ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_pk6wl"]
 
 [sub_resource type="SystemFont" id="SystemFont_akyrs"]
 font_names = PackedStringArray("Roboto")

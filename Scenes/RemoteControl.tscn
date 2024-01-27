@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://n2m4hx3q1ub7"]
 
-[ext_resource type="Texture2D" uid="uid://6qpxg1aa273b" path="res://TV/textures/Material.001_baseColor.png" id="1_d7lcw"]
-[ext_resource type="Texture2D" uid="uid://buxn48l5r7d0y" path="res://TV/textures/Material.001_metallicRoughness.png" id="2_6bnjj"]
+[ext_resource type="Texture2D" uid="uid://6qpxg1aa273b" path="res://Models/TV/textures/Material.001_baseColor.png" id="1_d7lcw"]
+[ext_resource type="Texture2D" uid="uid://buxn48l5r7d0y" path="res://Models/TV/textures/Material.001_metallicRoughness.png" id="2_6bnjj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkkaj"]
 resource_name = "Material.001"
