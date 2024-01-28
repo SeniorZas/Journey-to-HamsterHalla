@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://db2ekp0cmugg2"]
+
+[ext_resource type="Script" path="res://GameOverScreen.gd" id="1_hbpwk"]
+[ext_resource type="Texture2D" uid="uid://bfaifrligdj4t" path="res://hamterwings.jpg" id="2_oo4yh"]
+
+[node name="EndScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hbpwk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_oo4yh")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 694.0
+offset_top = 457.0
+offset_right = 734.0
+offset_bottom = 497.0
+
+[node name="MainMenu" type="Button" parent="Control"]
+layout_mode = 2
+offset_top = 3.0
+offset_right = 389.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 70
+text = "Main Menu"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1460.0
+offset_top = 1367.0
+offset_right = 1500.0
+offset_bottom = 1407.0
+
+[node name="RespawnButton" type="Button" parent="Control2"]
+layout_mode = 2
+offset_left = -1388.0
+offset_top = -912.0
+offset_right = -999.0
+offset_bottom = -808.0
+theme_override_font_sizes/font_size = 70
+text = "Respawn"
+
+[connection signal="pressed" from="Control/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Control2/RespawnButton" to="." method="_on_respawn_button_pressed"]
