@@ -9,7 +9,7 @@ var JUMP_VELOCITY = 4.5
 var twist_input := 0.0
 var pitch_input := 0.0
 var stamina=300
-var lethal_velocity = -9
+var lethal_velocity = -10
 var death_impact = false
 const raylength=10
 
