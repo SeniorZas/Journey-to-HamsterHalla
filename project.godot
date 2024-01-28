@@ -10,14 +10,10 @@ config_version=5
 
 [application]
 
-config/name="PRUEBA 2D Y 3D NO BORRAR!!!! (GITHUB VERSION!!)"
+config/name="Game Pre-Update"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://ASSETSVIEJOS/icon.svg"
-
-[filesystem]
-
-import/fbx/enabled=false
 
 [input]
 
