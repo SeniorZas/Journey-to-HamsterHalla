@@ -9,7 +9,7 @@ var JUMP_VELOCITY = 4.5
 var twist_input := 0.0
 var pitch_input := 0.0
 var stamina=300
-var lethal_velocity = -15
+var lethal_velocity = -10
 var death_impact = false
 const raylength=10
 
@@ -25,6 +25,7 @@ const raylength=10
 @onready var explosion = $EXPLOSION
 @onready var anim = $hampter/AnimationTree
 @onready var staminaBar = $StaminaBar
+@onready var staminaBar2 = $StaminaBar2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -95,7 +96,6 @@ func _physics_process(delta):
 		else:
 			SPEED=12
 		stamina-=1
-		staminaBar.value = stamina
 		#text.text = str(stamina)
 		if stamina<=-100:
 			is_dead()
@@ -108,9 +108,16 @@ func _physics_process(delta):
 				SPEED=5
 			SPEED=5
 			stamina+=1
-			staminaBar.value = stamina
 			#text.text= str(stamina)
-	
+		
+	staminaBar.value = stamina
+	staminaBar2.value = stamina
+	if staminaBar.value <= 0:
+		staminaBar.hide()
+		staminaBar2.show()
+	if staminaBar.value > 0:
+		staminaBar2.hide()
+		staminaBar.show()
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -139,4 +146,7 @@ func _physics_process(delta):
 	anim.set("parameters/conditions/jump", !is_on_floor() && !raycast1.is_colliding())
 	
 	move_and_slide()
+	
+
+		
 
