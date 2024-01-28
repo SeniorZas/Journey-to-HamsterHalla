@@ -1,15 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://dm28p040y72tl"]
+[gd_scene load_steps=27 format=3 uid="uid://dm28p040y72tl"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ublfp"]
 [ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
+[ext_resource type="AudioStream" uid="uid://br3drgtxmm7hg" path="res://Music/Hamster_walk_sfx.wav" id="3_vq12k"]
+[ext_resource type="AudioStream" uid="uid://b4dikwwhsfhjf" path="res://Music/Hamster_jump_sfx.wav" id="4_282e5"]
+[ext_resource type="AudioStream" uid="uid://46h146dmwbwl" path="res://Music/Hamster_explosion_sfx.wav" id="5_rurgu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljlqn"]
 albedo_texture = ExtResource("2_6rj66")
 
 [sub_resource type="QuadMesh" id="QuadMesh_jdcs8"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kvo15"]
-points = PackedVector3Array(-1.20905, 2.40646, 0.397381, -1.20905, 2.40646, -0.397574, -1.78803, 2.06173, 0.258027, -1.85449, 1.82765, 0.50697, -1.17639, 2.32481, 0.523978, 0.656975, 1.87935, 0.591626, 0.662353, 2.00811, 5.96046e-08, -1.17639, 2.32481, -0.524172, -1.85449, 1.82765, -0.507163, -1.78803, 2.06173, -0.25822, 0.656975, 1.87935, -0.591819, -2.31437, 1.62835, 0.0836897, -1.92096, 1.59381, 0.524752, -1.2709, 0.0581307, 0.930637, -0.945491, 1.14472, 0.828006, -0.00422025, 1.21696, 0.863376, 0.0399618, 1.61603, 0.759585, 0.583978, 1.67208, 0.758425, 1.18947, 1.63633, 0.538861, 1.18947, 1.77958, 5.96046e-08, -0.945491, 1.14472, -0.828199, 0.583978, 1.67208, -0.758619, 0.0399618, 1.61603, -0.759778, -0.00422025, 1.21696, -0.863569, -1.92096, 1.59381, -0.524945, -2.31437, 1.62835, -0.0838829, -1.2709, 0.0581307, -0.93083, 1.18947, 1.63633, -0.539054, -2.31091, 1.61265, 0.0836897, -2.17068, 1.25633, 0.314658, -2.04582, 1.42495, 0.419801, -1.26552, -0.0513017, 0.897973, 0.21208, 0.00136112, 0.987267, 0.210543, 0.147513, 0.981469, 0.728818, 0.634523, 0.91846, 0.510982, 1.2416, 0.833418, 1.11147, 1.23483, 0.702568, 1.37964, 1.35199, 0.486096, 1.56136, 1.25295, 5.96046e-08, 1.11147, 1.23483, -0.702761, 0.728818, 0.634523, -0.918653, 0.510982, 1.2416, -0.833611, 0.210543, 0.147513, -0.981662, -2.04582, 1.42495, -0.419994, -2.31091, 1.61265, -0.0838829, -2.17068, 1.25633, -0.314851, -1.26552, -0.0513017, -0.898166, 0.21208, 0.00136112, -0.987267, 1.37964, 1.35199, -0.486289, -2.29939, 1.5653, 0.0836897, -1.249, -0.0529927, 0.74161, 1.20406, -0.0612062, 0.603803, 0.949345, -0.0527512, 0.78993, 1.07574, -0.00153776, 0.823174, 1.0135, 0.634523, 0.821434, 1.41844, 0.374591, 0.562248, 1.42843, 1.05824, 0.486096, 1.61016, 0.959197, 5.96046e-08, 1.42843, 1.05824, -0.486289, 1.41844, 0.374591, -0.562441, 1.0135, 0.634523, -0.821627, 1.07574, -0.00153776, -0.823367, -2.29939, 1.5653, -0.0838829, -1.249, -0.0529927, -0.741803, 0.949345, -0.0527512, -0.790123, 1.20406, -0.0612062, -0.603996, 1.58288, 0.452619, 5.96046e-08)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qw3m5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odu8y"]
 
@@ -496,23 +498,26 @@ transform = Transform3D(1.56051, 0, 0, 0, 1.56051, 0, 0, 0, 1.56051, 0, 0.918408
 material_override = SubResource("StandardMaterial3D_ljlqn")
 mesh = SubResource("QuadMesh_jdcs8")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0.138224, -0.0507507)
+shape = SubResource("CapsuleShape3D_qw3m5")
+
 [node name="Raycasts" type="Node3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.0202243, -0.00582182)
 
 [node name="Raycast1" type="RayCast3D" parent="Raycasts"]
-transform = Transform3D(1, 0, 0, 0, -5.56333e-08, -1, 0, 1.27274, -4.37114e-08, 0, 0, -0.419862)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.333314)
 
 [node name="Raycast2" type="RayCast3D" parent="Raycasts"]
-transform = Transform3D(1.49017, 0, 0, 0, 1.05371, -1.05371, 0, 1.05371, 1.05371, 0, 0, -0.423929)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, -0.423929)
 
 [node name="Raycast3" type="RayCast3D" parent="Raycasts"]
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.26763e-08, 0, -0.29, 0, 0.29, 0, 0.29, 0, -1.26763e-08, 0, -0.24549, 0)
-shape = SubResource("ConvexPolygonShape3D_kvo15")
-
 [node name="hampter" type="Node3D" parent="."]
 transform = Transform3D(-1.26763e-08, 0, -0.29, 0, 0.29, 0, 0.29, 0, -1.26763e-08, 0, -0.24549, 0)
+
+[node name="Empty" type="Node3D" parent="hampter"]
+transform = Transform3D(1, 0, 0, 0, -3.57628e-07, -1, 0, 1, -3.57628e-07, 0, 0, -5.23939)
 
 [node name="Armature" type="Node3D" parent="hampter"]
 
@@ -529,14 +534,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999808, 0.0196242, -2.48299e-08, -0.0196242, 0.999807, -2.14495e-09, 2.4783e-08, 2.63181e-09, 1, 4.45155e-08, 1.79658, -1.65716e-11)
 bones/1/enabled = true
 bones/1/position = Vector3(4.45155e-08, 1.79658, -1.65716e-11)
-bones/1/rotation = Quaternion(-0.0671963, -0.0421276, -0.0285131, 0.996442)
+bones/1/rotation = Quaternion(-0.121837, -0.0930872, -0.107748, 0.982284)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.003"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.979711, -0.200416, -3.29818e-08, 0.200416, 0.979711, 1.56125e-08, 2.91837e-08, -2.19058e-08, 1, -1.35225e-10, 0.513091, 2.62421e-10)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.35225e-10, 0.513091, 2.62421e-10)
-bones/2/rotation = Quaternion(-0.0320378, -0.0825191, 0.0953829, 0.991497)
+bones/2/rotation = Quaternion(-0.121703, -0.313468, 0.0760677, 0.938691)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.004.L"
 bones/3/parent = 0
@@ -636,3 +641,15 @@ min_value = -100.0
 max_value = 300.0
 rounded = true
 show_percentage = false
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vq12k")
+volume_db = -3.0
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_282e5")
+volume_db = -10.0
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_rurgu")
+volume_db = -10.0
