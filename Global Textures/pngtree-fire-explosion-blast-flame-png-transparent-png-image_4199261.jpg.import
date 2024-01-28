@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chucb1571pjjt"
-path.s3tc="res://.godot/imported/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg-37ca18bcd6eba5c2c28c6c46c969c1c8.s3tc.ctex"
+path.s3tc="res://.godot/imported/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg-ec56805b4704a8a1784f4b1078697372.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg"
-dest_files=["res://.godot/imported/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg-37ca18bcd6eba5c2c28c6c46c969c1c8.s3tc.ctex"]
+source_file="res://Global Textures/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg"
+dest_files=["res://.godot/imported/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg-ec56805b4704a8a1784f4b1078697372.s3tc.ctex"]
 
 [params]
 

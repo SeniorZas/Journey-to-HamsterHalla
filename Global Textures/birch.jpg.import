@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://df2ibuceqmrri"
-path.s3tc="res://.godot/imported/birch.jpg-907b74fdf940f61680e0fa54e66ad90c.s3tc.ctex"
+path.s3tc="res://.godot/imported/birch.jpg-23804d78f56920cd088b33bf1a7928c4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://birch.jpg"
-dest_files=["res://.godot/imported/birch.jpg-907b74fdf940f61680e0fa54e66ad90c.s3tc.ctex"]
+source_file="res://Global Textures/birch.jpg"
+dest_files=["res://.godot/imported/birch.jpg-23804d78f56920cd088b33bf1a7928c4.s3tc.ctex"]
 
 [params]
 

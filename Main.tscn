@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://y2yya0exrics" path="res://Scenes/Lamp.tscn" id="2_h8w8t"]
 [ext_resource type="PackedScene" uid="uid://0ufy6c61bjw6" path="res://Scenes/pause_menu.tscn" id="2_ls2ni"]
 [ext_resource type="PackedScene" uid="uid://dem2p1krsp4s1" path="res://Scenes/Player.tscn" id="3_725tr"]
-[ext_resource type="Texture2D" uid="uid://df2ibuceqmrri" path="res://birch.jpg" id="3_phooo"]
+[ext_resource type="Texture2D" uid="uid://df2ibuceqmrri" path="res://Global Textures/birch.jpg" id="3_phooo"]
 [ext_resource type="PackedScene" uid="uid://d2swsjpgj3gy2" path="res://Scenes/TV.tscn" id="4_0ulw7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a7xad"]
