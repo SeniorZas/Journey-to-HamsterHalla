@@ -68,7 +68,6 @@ func _physics_process(delta):
 		if isRotated:
 			playermodel.rotate_x(- deg_to_rad(85))
 			isRotated=false
-		print(velocity.y) 
 	# Death falling velocity condition
 	if velocity.y <= lethal_velocity:
 		death_impact = true
