@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://clrljmclrwmla"]
+
+[ext_resource type="PackedScene" uid="uid://bcq7juho535nn" path="res://Models/Ventana.glb" id="1_vykmc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xi5fd"]
+albedo_color = Color(0.619608, 0.619608, 0.619608, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u2je6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qakv"]
+transparency = 1
+albedo_color = Color(0, 0.545098, 0.545098, 0.266667)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7klf4"]
+material = SubResource("StandardMaterial3D_7qakv")
+
+[node name="Ventana" instance=ExtResource("1_vykmc")]
+
+[node name="16696_20_Pane_Casement_Window-Pine_V1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xi5fd")
+surface_material_override/1 = SubResource("StandardMaterial3D_u2je6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(5.90022e-15, 4.37114e-08, 3.56874, 3.08801, -4.37114e-08, 0, 1.34981e-07, 1, -1.55995e-07, -0.0560478, 3.13215, -0.0471803)
+mesh = SubResource("PlaneMesh_7klf4")
