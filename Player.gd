@@ -3,13 +3,13 @@ extends CharacterBody3D
 var counter= 0
 var isRotated = false
 var isdead = false
-var sense=.1
+const sense=.1
 var SPEED = 5.0
 var JUMP_VELOCITY = 4.5
 var twist_input := 0.0
 var pitch_input := 0.0
 var stamina=300
-var lethal_velocity = -15
+var lethal_velocity = -10
 var death_impact = false
 const raylength=10
 
@@ -25,6 +25,7 @@ const raylength=10
 @onready var explosion = $EXPLOSION
 @onready var anim = $hampter/AnimationTree
 @onready var staminaBar = $StaminaBar
+@onready var staminaBar2 = $StaminaBar2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -49,9 +50,7 @@ func _input(event: InputEvent) -> void:
 func is_dead():
 	playermodel.visible=false
 	isdead=true
-	SPEED = 0.001
-	JUMP_VELOCITY=0
-	sense=0
+	SPEED = 0
 	explosion.visible = true
 	await get_tree().create_timer(2).timeout 
 	get_tree().quit()
@@ -77,8 +76,8 @@ func _physics_process(delta):
 		if !isRotated:
 			playermodel.rotate_x(deg_to_rad(85))
 			hitbox.rotate_x(deg_to_rad(85))
+			SPEED=0
 			isRotated=true
-
 	elif raycast2.is_colliding() and !raycast3.is_colliding() and !raycast1.is_colliding():
 		if isRotated:
 			playermodel.rotate_x(- deg_to_rad(85))
@@ -97,7 +96,6 @@ func _physics_process(delta):
 		else:
 			SPEED=12
 		stamina-=1
-		staminaBar.value = stamina
 		#text.text = str(stamina)
 		if stamina<=-100:
 			is_dead()
@@ -110,9 +108,16 @@ func _physics_process(delta):
 				SPEED=5
 			SPEED=5
 			stamina+=1
-			staminaBar.value = stamina
 			#text.text= str(stamina)
-	
+		
+	staminaBar.value = stamina
+	staminaBar2.value = stamina
+	if staminaBar.value <= 0:
+		staminaBar.hide()
+		staminaBar2.show()
+	if staminaBar.value > 0:
+		staminaBar2.hide()
+		staminaBar.show()
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -141,4 +146,7 @@ func _physics_process(delta):
 	anim.set("parameters/conditions/jump", !is_on_floor() && !raycast1.is_colliding())
 	
 	move_and_slide()
+	
+
+		
 
