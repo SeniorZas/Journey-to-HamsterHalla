@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bdvu3yol0yyev" path="res://Scenes/Mesa_Centro.tscn" id="1_yb6v0"]
 [ext_resource type="PackedScene" uid="uid://y2yya0exrics" path="res://Scenes/Lamp.tscn" id="2_h8w8t"]
 [ext_resource type="PackedScene" uid="uid://0ufy6c61bjw6" path="res://Scenes/pause_menu.tscn" id="2_ls2ni"]
-[ext_resource type="PackedScene" uid="uid://dem2p1krsp4s1" path="res://Scenes/Player.tscn" id="3_725tr"]
+[ext_resource type="PackedScene" uid="uid://dm28p040y72tl" path="res://Scenes/Player.tscn" id="3_725tr"]
 [ext_resource type="Texture2D" uid="uid://df2ibuceqmrri" path="res://Global Textures/birch.jpg" id="3_phooo"]
 [ext_resource type="PackedScene" uid="uid://bk25iey5hgufy" path="res://Scenes/Mesa 1x1.tscn" id="6_t8b2b"]
 [ext_resource type="PackedScene" uid="uid://dikfy8f3iagte" path="res://Scenes/TV and rack.tscn" id="7_ahuyp"]
