@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://d1kp6tgicshac"]
+[gd_scene load_steps=20 format=3 uid="uid://d1kp6tgicshac"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_6vf7e"]
 [ext_resource type="PackedScene" uid="uid://bdvu3yol0yyev" path="res://Scenes/Mesa_Centro.tscn" id="1_yb6v0"]
 [ext_resource type="PackedScene" uid="uid://y2yya0exrics" path="res://Scenes/Lamp.tscn" id="2_h8w8t"]
 [ext_resource type="PackedScene" uid="uid://0ufy6c61bjw6" path="res://Scenes/pause_menu.tscn" id="2_ls2ni"]
-[ext_resource type="PackedScene" uid="uid://dem2p1krsp4s1" path="res://Scenes/Player.tscn" id="3_725tr"]
+[ext_resource type="PackedScene" uid="uid://dm28p040y72tl" path="res://Player.tscn" id="3_725tr"]
 [ext_resource type="Texture2D" uid="uid://df2ibuceqmrri" path="res://Global Textures/birch.jpg" id="3_phooo"]
 [ext_resource type="PackedScene" uid="uid://bk25iey5hgufy" path="res://Scenes/Mesa 1x1.tscn" id="6_t8b2b"]
 [ext_resource type="PackedScene" uid="uid://dikfy8f3iagte" path="res://Scenes/TV and rack.tscn" id="7_ahuyp"]
 [ext_resource type="PackedScene" uid="uid://cm3fconqg2c6a" path="res://Scenes/Sofa.tscn" id="8_4adks"]
 [ext_resource type="PackedScene" uid="uid://b3exidu6migl1" path="res://Scenes/Mesa.tscn" id="10_pj2lk"]
+[ext_resource type="AudioStream" uid="uid://0h640aa118wb" path="res://Music/Alonsojuegopiano2.wav" id="11_c67tr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a7xad"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -157,5 +158,10 @@ transform = Transform3D(-9.61651e-08, 0, 1.411, 0, 1.1054, 0, -2.2, 0, -6.16768e
 
 [node name="Mesa" parent="." instance=ExtResource("10_pj2lk")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.223, 2.03635, -10.624)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_c67tr")
+volume_db = -5.0
+autoplay = true
 
 [editable path="Lamp"]
