@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/TV.gd" id="1_24uew"]
 [ext_resource type="Texture2D" uid="uid://6qpxg1aa273b" path="res://Models/TV/textures/Material.001_baseColor.png" id="1_lbiha"]
 [ext_resource type="Texture2D" uid="uid://buxn48l5r7d0y" path="res://Models/TV/textures/Material.001_metallicRoughness.png" id="2_r1soc"]
-[ext_resource type="Texture2D" uid="uid://d1qm3rpnpdovn" path="res://black-color-solid-background-1920x1080.png" id="3_uk22k"]
-[ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="4_ymxjn"]
+[ext_resource type="Texture2D" uid="uid://d1qm3rpnpdovn" path="res://Global Textures/black-color-solid-background-1920x1080.png" id="3_uk22k"]
+[ext_resource type="Texture2D" uid="uid://eqyqlq5yace8" path="res://Global Textures/SAMUEL.png" id="5_rvtv5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkkaj"]
 resource_name = "Material.001"
@@ -55,7 +55,7 @@ albedo_texture = ExtResource("3_uk22k")
 [sub_resource type="QuadMesh" id="QuadMesh_6kcxu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brb8u"]
-albedo_texture = ExtResource("4_ymxjn")
+albedo_texture = ExtResource("5_rvtv5")
 
 [node name="Sketchfab_Scene" type="StaticBody3D"]
 script = ExtResource("1_24uew")
@@ -79,7 +79,8 @@ mesh = SubResource("QuadMesh_6kcxu")
 transform = Transform3D(1.17741, -1.13687e-13, -4.20396e-21, 7.50833e-20, -5.29424e-08, 1, -2.27374e-13, -1.21116, -4.37114e-08, 5.78638e-08, 0.864388, 1.13295)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Tv/explosión"]
-transform = Transform3D(1.56051, 1.21932e-26, -1.90897e-21, -2.84217e-14, 1.56051, 0, 1.60391e-20, 0, 1.56051, 0, 0.918408, -0.127817)
+transform = Transform3D(-1.56051, 1.36424e-07, 2.08597e-22, -1.36424e-07, -1.56051, 7.10543e-15, 2.71051e-20, 0, 1.56051, 0, 0.918, 0.0392753)
+rotation_order = 0
 material_override = SubResource("StandardMaterial3D_brb8u")
 mesh = SubResource("QuadMesh_6kcxu")
 
