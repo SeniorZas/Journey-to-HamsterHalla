@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b01e62h0ro84a"]
-
-[ext_resource type="ArrayMesh" uid="uid://b2n5pflvosbi2" path="res://Models/tv_rack.obj" id="1_hd5iv"]
-
-[node name="Node3D" type="Node3D"]
-
-[node name="TV Table" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.31134e-07, 0, 1.5, 0, 3, 0, -3, 0, -6.55671e-08, 0, 0, 0)
-mesh = ExtResource("1_hd5iv")
