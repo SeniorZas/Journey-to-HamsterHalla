@@ -9,7 +9,7 @@ var JUMP_VELOCITY = 4.5
 var twist_input := 0.0
 var pitch_input := 0.0
 var stamina=300
-var lethal_velocity = -10
+var lethal_velocity = -15
 var death_impact = false
 const raylength=10
 
@@ -26,6 +26,8 @@ const raylength=10
 @onready var anim = $hampter/AnimationTree
 @onready var staminaBar = $StaminaBar
 @onready var staminaBar2 = $StaminaBar2
+@onready var interactableTV = false
+@onready var tv_explosion = $"res://Scenes/TV and rack/TV/Tv/explosión"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -52,7 +54,7 @@ func is_dead():
 	isdead=true
 	SPEED = 0
 	explosion.visible = true
-	await get_tree().create_timer(1).timeout 
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
 	#get_tree().quit()
 	pass
@@ -81,7 +83,6 @@ func _physics_process(delta):
 		if !isRotated:
 			playermodel.rotate_x(deg_to_rad(85))
 			hitbox.rotate_x(deg_to_rad(85))
-			SPEED=0
 			isRotated=true
 	elif raycast2.is_colliding() and !raycast3.is_colliding() and !raycast1.is_colliding():
 		if isRotated:
@@ -89,10 +90,12 @@ func _physics_process(delta):
 			hitbox.rotate_x(- deg_to_rad(85))
 			SPEED=5
 			isRotated=false
-		JUMP_VELOCITY=1
+		JUMP_VELOCITY=4.5
 		velocity.y = 2
-		velocity.z = 10
-	
+
+	if interactableTV == true:
+		if Input.is_action_just_pressed("Interact"):
+			Global.pressedButton = true
 	
 	# Capacidad de correr y stamina
 	if Input.is_action_pressed("Run_up") && Input.is_action_pressed("move_forward") && stamina>-100 && !isdead:
@@ -153,6 +156,13 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+func _on_sex_area_area_entered(area):
+	$Label3D.text = "Press [E] to turn on TV"
+	interactableTV = true
+
+func _on_sex_area_area_exited(area):
+	$Label3D.text = ""
+	interactableTV = false
 
 		
 

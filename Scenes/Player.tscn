@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dm28p040y72tl"]
+[gd_scene load_steps=26 format=3 uid="uid://dm28p040y72tl"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ublfp"]
 [ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
@@ -8,8 +8,7 @@ albedo_texture = ExtResource("2_6rj66")
 
 [sub_resource type="QuadMesh" id="QuadMesh_jdcs8"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_337x7"]
-points = PackedVector3Array(1.55553, 0.857057, -0.079843, -1.16141, 2.46195, 0.4142, -1.23177, -0.0183074, -0.900086, -1.28591, 0.094672, 0.974863, 0.952796, -0.0312459, 0.810258, -1.90921, 1.71411, -0.582155, 0.569384, 1.61643, -0.76813, 0.949305, -0.0279919, -0.789116, 1.08236, 1.67232, 0.554258, -2.252, 1.45193, 0.15757, -1.09838, 2.3625, -0.421214, 1.10047, 1.67848, -0.542325, 0.512069, 1.50169, 0.787513, 0.0836133, 0.156929, -1.01845, -1.25546, -0.0507126, 0.883234, 1.4547, 0.281694, -0.582155, -2.03371, 1.46508, 0.538769, 0.270952, 0.156929, 1.03745, 0.688894, 1.96559, -0.134949, 1.37704, 0.320514, 0.575723, -2.22827, 1.68297, -0.13691, -1.28591, 0.156929, -0.956065, -1.17539, 2.33168, 0.509346, -2.20217, 1.33383, -0.259138, 1.56451, 1.155, 0.0392923, 0.908877, 0.697777, -0.82152, 1.09294, 1.3291, 0.674042, 1.17725, 1.74368, 0.156214, 0.627558, 1.84745, 0.614342, 1.36362, 1.33248, -0.493276, -0.184677, 1.26842, 0.819314, 1.17675, -0.020883, -0.607941)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qw3m5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odu8y"]
 
@@ -68,6 +67,9 @@ bind/9/pose = Transform3D(-0.997561, -0.0517833, 0.0468067, 0.0433351, -0.985124
 bind/10/name = &"Bone.007.R"
 bind/10/bone = -1
 bind/10/pose = Transform3D(0.0566289, -0.982007, -0.180151, -0.980044, -0.0202391, -0.197745, 0.190541, 0.187754, -0.963557, -0.108515, 0.84514, -0.939594)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbpfw"]
+albedo_color = Color(0.541176, 0.305882, 0, 1)
 
 [sub_resource type="Animation" id="Animation_xq88q"]
 resource_name = "Hamster_Idle"
@@ -473,6 +475,10 @@ states/Hamster_Run/position = Vector2(733, 187)
 states/Start/position = Vector2(300, 187)
 transitions = ["Start", "Hamster_Idle", SubResource("AnimationNodeStateMachineTransition_cp61t"), "Hamster_Idle", "Hamster_Jump", SubResource("AnimationNodeStateMachineTransition_xut0u"), "Hamster_Jump", "Hamster_Run", SubResource("AnimationNodeStateMachineTransition_fdkvh"), "Hamster_Run", "Hamster_Idle", SubResource("AnimationNodeStateMachineTransition_cg8mf"), "Hamster_Jump", "Hamster_Idle", SubResource("AnimationNodeStateMachineTransition_4npp4"), "Hamster_Run", "Hamster_Jump", SubResource("AnimationNodeStateMachineTransition_jlba0"), "Hamster_Idle", "Hamster_Run", SubResource("AnimationNodeStateMachineTransition_bj50n")]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p3ygc"]
+radius = 1.44283
+height = 3.03945
+
 [node name="Body" type="CharacterBody3D"]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 script = ExtResource("1_ublfp")
@@ -489,33 +495,29 @@ transform = Transform3D(1, 0, 0, 0, 0.999818, 0.0190926, 0, -0.0190926, 0.999818
 
 [node name="EXPLOSION" type="Node3D" parent="."]
 transform = Transform3D(1.96455, 0, 0, 0, 1.96455, 0, 0, 0, 1.96455, 0, 0, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="EXPLOSION"]
 transform = Transform3D(1.56051, 0, 0, 0, 1.56051, 0, 0, 0, 1.56051, 0, 0.918408, -0.127817)
 material_override = SubResource("StandardMaterial3D_ljlqn")
 mesh = SubResource("QuadMesh_jdcs8")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, -3.0598e-08, -0.7, 0, 0.7, -3.0598e-08, 0, 0.138224, -0.0507507)
+shape = SubResource("CapsuleShape3D_qw3m5")
+
 [node name="Raycasts" type="Node3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.0202243, -0.00582182)
 
 [node name="Raycast1" type="RayCast3D" parent="Raycasts"]
-transform = Transform3D(1, 0, 0, 0, -5.51452e-08, -1, 0, 1.26157, -4.37114e-08, 0, 0, -0.333314)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.333314)
 
 [node name="Raycast2" type="RayCast3D" parent="Raycasts"]
-transform = Transform3D(1.28953, 0, 0, 0, 0.911833, -0.911833, 0, 0.911833, 0.911833, 0, 0, -0.423929)
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, -0.423929)
 
 [node name="Raycast3" type="RayCast3D" parent="Raycasts"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.26763e-08, 0, -0.29, 0, 0.29, 0, 0.29, 0, -1.26763e-08, 0, -0.24549, 0)
-shape = SubResource("ConvexPolygonShape3D_337x7")
-
 [node name="hampter" type="Node3D" parent="."]
 transform = Transform3D(-1.26763e-08, 0, -0.29, 0, 0.29, 0, 0.29, 0, -1.26763e-08, 0, -0.24549, 0)
-
-[node name="Empty" type="Node3D" parent="hampter"]
-transform = Transform3D(1, 0, 0, 0, -3.57628e-07, -1, 0, 1, -3.57628e-07, 0, 0, -5.23939)
 
 [node name="Armature" type="Node3D" parent="hampter"]
 
@@ -532,7 +534,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999808, 0.0196242, -2.48299e-08, -0.0196242, 0.999807, -2.14495e-09, 2.4783e-08, 2.63181e-09, 1, 4.45155e-08, 1.79658, -1.65716e-11)
 bones/1/enabled = true
 bones/1/position = Vector3(4.45155e-08, 1.79658, -1.65716e-11)
-bones/1/rotation = Quaternion(-0.255729, -0.160325, -0.0806212, 0.949947)
+bones/1/rotation = Quaternion(0.0996809, 0.0197846, -0.14586, 0.984072)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.003"
 bones/2/parent = 1
@@ -601,6 +603,7 @@ bones/10/scale = Vector3(1, 1, 1)
 [node name="Cube" type="MeshInstance3D" parent="hampter/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_5hjbh")
 skin = SubResource("Skin_mlqvt")
+surface_material_override/0 = SubResource("StandardMaterial3D_mbpfw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="hampter"]
 libraries = {
@@ -639,3 +642,17 @@ min_value = -100.0
 max_value = 300.0
 rounded = true
 show_percentage = false
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06754, 0)
+
+[node name="SexArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="Area Colider" type="CollisionShape3D" parent="SexArea"]
+shape = SubResource("CapsuleShape3D_p3ygc")
+
+[connection signal="area_entered" from="SexArea" to="." method="_on_sex_area_area_entered"]
+[connection signal="area_exited" from="SexArea" to="." method="_on_sex_area_area_exited"]
