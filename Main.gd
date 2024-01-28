@@ -4,7 +4,7 @@ extends Node3D
 @onready var personaje2 = $CharacterBody3D
 @onready var explosion_personaje = $CharacterBody3D/EXPLOSION
 @onready var TV = $TV
-@onready var tv_explosion = $"TV/Tv/explosión"
+@onready var tv_explosion = $"TV and rack/TV/Tv/explosión"
 @onready var pause_menu = $PauseMenu
 var paused = false
 

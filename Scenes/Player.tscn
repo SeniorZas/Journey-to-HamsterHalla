@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dm28p040y72tl"]
+[gd_scene load_steps=24 format=3 uid="uid://dem2p1krsp4s1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ublfp"]
-[ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://Global Textures/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
+[ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljlqn"]
 albedo_texture = ExtResource("2_6rj66")
@@ -531,14 +531,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999808, 0.0196242, -2.48299e-08, -0.0196242, 0.999807, -2.14495e-09, 2.4783e-08, 2.63181e-09, 1, 4.45155e-08, 1.79658, -1.65716e-11)
 bones/1/enabled = true
 bones/1/position = Vector3(4.45155e-08, 1.79658, -1.65716e-11)
-bones/1/rotation = Quaternion(0.0996809, 0.0197846, -0.14586, 0.984072)
+bones/1/rotation = Quaternion(0.0887246, 0.01761, -0.130921, 0.987258)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.003"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.979711, -0.200416, -3.29818e-08, 0.200416, 0.979711, 1.56125e-08, 2.91837e-08, -2.19058e-08, 1, -1.35225e-10, 0.513091, 2.62421e-10)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.35225e-10, 0.513091, 2.62421e-10)
-bones/2/rotation = Quaternion(0.138696, -0.130668, -0.0476017, 0.980522)
+bones/2/rotation = Quaternion(0.123631, -0.116475, -0.0311987, 0.984975)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.004.L"
 bones/3/parent = 0
@@ -617,24 +617,10 @@ parameters/conditions/jump = false
 parameters/conditions/run = false
 
 [node name="StaminaBar" type="ProgressBar" parent="."]
-modulate = Color(0, 0.611765, 0.0235294, 1)
 offset_left = 25.0
 offset_top = 600.0
 offset_right = 345.0
 offset_bottom = 627.0
 min_value = -100.0
 max_value = 300.0
-rounded = true
-show_percentage = false
-
-[node name="StaminaBar2" type="ProgressBar" parent="."]
-visible = false
-modulate = Color(1, 0, 0.0235294, 1)
-offset_left = 25.0
-offset_top = 600.0
-offset_right = 345.0
-offset_bottom = 627.0
-min_value = -100.0
-max_value = 300.0
-rounded = true
 show_percentage = false
