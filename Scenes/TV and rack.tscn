@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dikfy8f3iagte"]
+
+[ext_resource type="PackedScene" uid="uid://d2swsjpgj3gy2" path="res://Scenes/TV.tscn" id="1_coqau"]
+[ext_resource type="ArrayMesh" uid="uid://b2n5pflvosbi2" path="res://Models/tv_rack.obj" id="2_5r3k5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oya02"]
+size = Vector3(1.04736, 1.76123, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjaut"]
+albedo_color = Color(0.2, 0.101961, 0.0352941, 1)
+uv1_scale = Vector3(0.86, 0.7, 0)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7xy6d"]
+points = PackedVector3Array(1.85247, 1, 0.971055, -1.91223, 1.11022e-16, -0.970122, -1.90861, 0.000962001, 1, 1.91223, 1.11022e-16, -0.970122, -1.85247, 1, -0.939309, 1.90861, 0.000962001, 1, -1.85247, 1, 0.971055, 1.85247, 1, -0.939309)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp7xr"]
+albedo_color = Color(0.2, 0.101961, 0.0352941, 1)
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3kme7"]
+
+[node name="TV and rack" type="MeshInstance3D"]
+
+[node name="TV" parent="." instance=ExtResource("1_coqau")]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, 0, 5.919, 0)
+
+[node name="TV Colider" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-07, 0, 1.7, 0, 3, 0, -3, 0, -7.43094e-08, 0, 0, 0)
+skeleton = NodePath("../TV Rack")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TV Colider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TV Colider/StaticBody3D"]
+transform = Transform3D(2.59437, 0, 2.30926e-14, 0, 1, 0, -7.10543e-14, 0, 0.814368, 0, 1.93, 0)
+shape = SubResource("BoxShape3D_oya02")
+
+[node name="TV Rack" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-07, 0, 1.7, 0, 3, 0, -3, 0, -7.43094e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_sjaut")
+mesh = ExtResource("2_5r3k5")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TV Rack"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TV Rack/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_7xy6d")
+
+[node name="TV Rack Fix" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.15164e-07, 0, 2.97717, 0, 5.91038, 0, -11.7856, 0, -1.30136e-07, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bp7xr")
+mesh = SubResource("BoxMesh_3kme7")
+skeleton = NodePath("../TV Rack")
