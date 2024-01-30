@@ -1,8 +1,0 @@
-Model Information:
-* title:	Sofa
-* source:	https://sketchfab.com/3d-models/sofa-841e20b52fe2475c8ff93ea92312c11a
-* author:	PaidMonkey (https://sketchfab.com/PaidMonkey)
-
-Model License:
-* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
-* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
