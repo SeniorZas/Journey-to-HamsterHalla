@@ -26,6 +26,11 @@ const raylength=10
 @onready var anim = $hampter/AnimationTree
 @onready var staminaBar = $StaminaBar
 @onready var staminaBar2 = $StaminaBar2
+@onready var interactableTV = false
+@onready var tv_explosion = $"res://Scenes/TV and rack/TV/Tv/explosión"
+@onready var walkingSound = $SexArea/Walk
+@onready var jumpSound = $SexArea/Jump
+@onready var explosionSound = $SexArea/Explosion
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -48,11 +53,12 @@ func _input(event: InputEvent) -> void:
 	pass
 	
 func is_dead():
+	explosionSound.play()
 	playermodel.visible=false
 	isdead=true
 	SPEED = 0
 	explosion.visible = true
-	await get_tree().create_timer(1).timeout 
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
 	#get_tree().quit()
 	pass
@@ -68,7 +74,6 @@ func _physics_process(delta):
 		if isRotated:
 			playermodel.rotate_x(- deg_to_rad(85))
 			isRotated=false
-		print(velocity.y) 
 	# Death falling velocity condition
 	if velocity.y <= lethal_velocity:
 		death_impact = true
@@ -82,7 +87,6 @@ func _physics_process(delta):
 		if !isRotated:
 			playermodel.rotate_x(deg_to_rad(85))
 			hitbox.rotate_x(deg_to_rad(85))
-			SPEED=0
 			isRotated=true
 	elif raycast2.is_colliding() and !raycast3.is_colliding() and !raycast1.is_colliding():
 		if isRotated:
@@ -90,10 +94,12 @@ func _physics_process(delta):
 			hitbox.rotate_x(- deg_to_rad(85))
 			SPEED=5
 			isRotated=false
-		JUMP_VELOCITY=1
+		JUMP_VELOCITY=4.5
 		velocity.y = 2
-		velocity.z = 10
-	
+
+	if interactableTV == true:
+		if Input.is_action_just_pressed("Interact"):
+			Global.pressedButton = true
 	
 	# Capacidad de correr y stamina
 	if Input.is_action_pressed("Run_up") && Input.is_action_pressed("move_forward") && stamina>-100 && !isdead:
@@ -126,7 +132,7 @@ func _physics_process(delta):
 		staminaBar.show()
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and playermodel.visible == true:
-		
+		jumpSound.play()
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -140,6 +146,8 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	if !input_dir:
+		walkingSound.play()
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -154,6 +162,13 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+func _on_sex_area_area_entered(area):
+	$Label3D.text = "Press [E] to turn on TV"
+	interactableTV = true
+
+func _on_sex_area_area_exited(area):
+	$Label3D.text = ""
+	interactableTV = false
 
 		
 

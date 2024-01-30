@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3exidu6migl1"]
+[gd_scene load_steps=4 format=3 uid="uid://b3exidu6migl1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iek6x"]
+albedo_color = Color(0.2, 0.101961, 0.0352941, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e6wji"]
 
@@ -9,6 +12,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [node name="Tabla Arriba" type="MeshInstance3D" parent="."]
 transform = Transform3D(4.32, 0, 0, 0, 0.2, 0, 0, 0, 2.75, 0, 1.13111, 0)
+material_override = SubResource("StandardMaterial3D_iek6x")
 mesh = SubResource("BoxMesh_e6wji")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Tabla Arriba"]
@@ -18,6 +22,7 @@ shape = SubResource("ConcavePolygonShape3D_frorh")
 
 [node name="Pata 1" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 2.1, 0, 0, 0, 0.25, -1.798, 0, 1.17344)
+material_override = SubResource("StandardMaterial3D_iek6x")
 mesh = SubResource("BoxMesh_e6wji")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pata 1"]
@@ -28,6 +33,7 @@ shape = SubResource("ConcavePolygonShape3D_frorh")
 
 [node name="Pata 2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 2.1, 0, 0, 0, 0.25, -1.798, 0, -1.173)
+material_override = SubResource("StandardMaterial3D_iek6x")
 mesh = SubResource("BoxMesh_e6wji")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pata 2"]
@@ -38,6 +44,7 @@ shape = SubResource("ConcavePolygonShape3D_frorh")
 
 [node name="Pata 3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 2.1, 0, 0, 0, 0.25, 1.798, 0, 1.173)
+material_override = SubResource("StandardMaterial3D_iek6x")
 mesh = SubResource("BoxMesh_e6wji")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pata 3"]
@@ -48,6 +55,7 @@ shape = SubResource("ConcavePolygonShape3D_frorh")
 
 [node name="Pata 4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 2.1, 0, 0, 0, 0.25, 1.798, 0, -1.173)
+material_override = SubResource("StandardMaterial3D_iek6x")
 mesh = SubResource("BoxMesh_e6wji")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pata 4"]
