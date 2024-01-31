@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://b4dikwwhsfhjf" path="res://Audio/SFX/Hamster_jump_sfx.wav" id="4_5rn7f"]
 [ext_resource type="AudioStream" uid="uid://46h146dmwbwl" path="res://Audio/SFX/Hamster_explosion_sfx.wav" id="5_a440a"]
 
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljlqn"]
 albedo_texture = ExtResource("2_6rj66")
 
@@ -538,14 +537,14 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999808, 0.0196242, -2.48299e-08, -0.0196242, 0.999807, -2.14495e-09, 2.4783e-08, 2.63181e-09, 1, 4.45155e-08, 1.79658, -1.65716e-11)
 bones/1/enabled = true
 bones/1/position = Vector3(4.45155e-08, 1.79658, -1.65716e-11)
-bones/1/rotation = Quaternion(0.0983673, 0.0195239, -0.144069, 0.984473)
+bones/1/rotation = Quaternion(0.0996809, 0.0197846, -0.14586, 0.984072)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.003"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.979711, -0.200416, -3.29818e-08, 0.200416, 0.979711, 1.56125e-08, 2.91837e-08, -2.19058e-08, 1, -1.35225e-10, 0.513091, 2.62421e-10)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.35225e-10, 0.513091, 2.62421e-10)
-bones/2/rotation = Quaternion(0.136895, -0.128971, -0.0456362, 0.981093)
+bones/2/rotation = Quaternion(0.138696, -0.130668, -0.0476017, 0.980522)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.004.L"
 bones/3/parent = 0
@@ -663,6 +662,8 @@ stream = ExtResource("3_8qb7f")
 
 [node name="Jump" type="AudioStreamPlayer" parent="SexArea"]
 stream = ExtResource("4_5rn7f")
+volume_db = -10.0
+pitch_scale = 1.75
 
 [node name="Explosion" type="AudioStreamPlayer" parent="SexArea"]
 stream = ExtResource("5_a440a")

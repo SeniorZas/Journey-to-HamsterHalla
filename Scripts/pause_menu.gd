@@ -8,6 +8,7 @@ func _on_resumir_pressed():
 
 func _on_exit_to_menu_pressed():
 	get_tree().paused = false
+	main.pauseMenu()
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func _on_exit_to_desktop_pressed():
