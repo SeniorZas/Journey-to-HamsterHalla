@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_pk6wl"]
 [ext_resource type="Texture2D" uid="uid://b003duvvuryds" path="res://Global Textures/OIG4.png" id="2_6a57r"]
-[ext_resource type="AudioStream" uid="uid://i0r8wmppdgba" path="res://Scenes/Music/Alonso_chill_ambiental_pianoguitarrajuego_wtf.wav" id="3_garh4"]
+[ext_resource type="AudioStream" uid="uid://dmib3jyhi4u4" path="res://Music/Main_Menu_Music.wav" id="3_aqvoc"]
 
 [sub_resource type="SystemFont" id="SystemFont_akyrs"]
 font_names = PackedStringArray("Roboto")
@@ -90,9 +90,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Exit"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_garh4")
-volume_db = 5.0
+[node name="Background Main Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aqvoc")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
