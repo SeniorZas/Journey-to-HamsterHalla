@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6qpxg1aa273b"
-path.s3tc="res://.godot/imported/Material.001_baseColor.png-ccade4a53011a8c366fee733c3288c83.s3tc.ctex"
+path.s3tc="res://.godot/imported/Material.001_baseColor.png-11c058c007dfcd1aba38492a8d76c792.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/TV/textures/Material.001_baseColor.png"
-dest_files=["res://.godot/imported/Material.001_baseColor.png-ccade4a53011a8c366fee733c3288c83.s3tc.ctex"]
+source_file="res://Models/TV, Playbox and Remote/textures/Material.001_baseColor.png"
+dest_files=["res://.godot/imported/Material.001_baseColor.png-11c058c007dfcd1aba38492a8d76c792.s3tc.ctex"]
 
 [params]
 

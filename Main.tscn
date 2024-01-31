@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b3exidu6migl1" path="res://Scenes/Mesa.tscn" id="10_pj2lk"]
 [ext_resource type="PackedScene" uid="uid://dsj1fqfhbuc5a" path="res://Scenes/bookshelf.tscn" id="12_oyc6k"]
 [ext_resource type="Texture2D" uid="uid://m0yho8c8oprw" path="res://Global Textures/dif.jpg" id="14_l11en"]
-[ext_resource type="ArrayMesh" uid="uid://bl6kyiogrfy7m" path="res://Models/TV/Remote Control.obj" id="15_a8c4g"]
+[ext_resource type="ArrayMesh" uid="uid://bl6kyiogrfy7m" path="res://Models/TV, Playbox and Remote/Remote Control.obj" id="15_a8c4g"]
 [ext_resource type="PackedScene" uid="uid://88yc561vvocy" path="res://Models/Cage/Jaula.glb" id="17_24yhv"]
 [ext_resource type="PackedScene" uid="uid://bo1nbcm8q0ca0" path="res://Models/Window/Ventana.glb" id="17_521ee"]
 [ext_resource type="AudioStream" uid="uid://4c1ylv0hhrc" path="res://Audio/Background Music/Main_Music.wav" id="18_ino75"]

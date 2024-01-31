@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://1s8oww0s1a3m"
-path="res://.godot/imported/scene.gltf-145ae5ec05f59c0c710272cbb5bbe2dc.scn"
+path="res://.godot/imported/scene.gltf-b568b79a137f88680386ae2ca39cc56a.scn"
 
 [deps]
 
-source_file="res://Models/TV/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-145ae5ec05f59c0c710272cbb5bbe2dc.scn"]
+source_file="res://Models/TV, Playbox and Remote/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-b568b79a137f88680386ae2ca39cc56a.scn"]
 
 [params]
 

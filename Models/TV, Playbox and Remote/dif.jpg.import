@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d35xo2mes84ii"
-path="res://.godot/imported/dif.jpg-a4e1344aecf7802ac81d54f58e66405d.ctex"
+path="res://.godot/imported/dif.jpg-4422d2e39fa575f362f15b7e8e4bffa8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/dif.jpg"
-dest_files=["res://.godot/imported/dif.jpg-a4e1344aecf7802ac81d54f58e66405d.ctex"]
+source_file="res://Models/TV, Playbox and Remote/dif.jpg"
+dest_files=["res://.godot/imported/dif.jpg-4422d2e39fa575f362f15b7e8e4bffa8.ctex"]
 
 [params]
 

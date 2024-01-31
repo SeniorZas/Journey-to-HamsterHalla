@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buxn48l5r7d0y"
-path.s3tc="res://.godot/imported/Material.001_metallicRoughness.png-dc8bfc13777557c5219e0e7a4167e99d.s3tc.ctex"
+path.s3tc="res://.godot/imported/Material.001_metallicRoughness.png-1d7a3a39a26e501735daab27407274b6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/TV/textures/Material.001_metallicRoughness.png"
-dest_files=["res://.godot/imported/Material.001_metallicRoughness.png-dc8bfc13777557c5219e0e7a4167e99d.s3tc.ctex"]
+source_file="res://Models/TV, Playbox and Remote/textures/Material.001_metallicRoughness.png"
+dest_files=["res://.godot/imported/Material.001_metallicRoughness.png-1d7a3a39a26e501735daab27407274b6.s3tc.ctex"]
 
 [params]
 

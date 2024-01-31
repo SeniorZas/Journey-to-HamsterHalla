@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://d2swsjpgj3gy2"]
 
 [ext_resource type="Script" path="res://Scripts/TV.gd" id="1_24uew"]
-[ext_resource type="Texture2D" uid="uid://6qpxg1aa273b" path="res://Models/TV/textures/Material.001_baseColor.png" id="1_lbiha"]
-[ext_resource type="Texture2D" uid="uid://buxn48l5r7d0y" path="res://Models/TV/textures/Material.001_metallicRoughness.png" id="2_r1soc"]
+[ext_resource type="Texture2D" uid="uid://6qpxg1aa273b" path="res://Models/TV, Playbox and Remote/textures/Material.001_baseColor.png" id="1_lbiha"]
+[ext_resource type="Texture2D" uid="uid://buxn48l5r7d0y" path="res://Models/TV, Playbox and Remote/textures/Material.001_metallicRoughness.png" id="2_r1soc"]
 [ext_resource type="Texture2D" uid="uid://d1qm3rpnpdovn" path="res://Global Textures/black-color-solid-background-1920x1080.png" id="3_uk22k"]
 [ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://Global Textures/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="4_ymxjn"]
 
