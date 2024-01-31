@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://0pweohetht7u"
-path="res://.godot/imported/RuedaHamster.glb-30264379912154540f480cc632445b14.scn"
+path="res://.godot/imported/RuedaHamster.glb-7ba1f71e8e69e73c525944c443d41580.scn"
 
 [deps]
 
-source_file="res://Models/RuedaHamster.glb"
-dest_files=["res://.godot/imported/RuedaHamster.glb-30264379912154540f480cc632445b14.scn"]
+source_file="res://Models/Hamster Wheel/RuedaHamster.glb"
+dest_files=["res://.godot/imported/RuedaHamster.glb-7ba1f71e8e69e73c525944c443d41580.scn"]
 
 [params]
 

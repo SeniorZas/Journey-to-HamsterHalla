@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://br3drgtxmm7hg"
-path="res://.godot/imported/Hamster_walk_sfx.wav-a2b70d871e5a6be8d8857e6d486d547e.sample"
+path="res://.godot/imported/Hamster_walk_sfx.wav-ba907c8e9b3273defb33e5e1a5ca060a.sample"
 
 [deps]
 
-source_file="res://Music/Hamster_walk_sfx.wav"
-dest_files=["res://.godot/imported/Hamster_walk_sfx.wav-a2b70d871e5a6be8d8857e6d486d547e.sample"]
+source_file="res://Audio/SFX/Hamster_walk_sfx.wav"
+dest_files=["res://.godot/imported/Hamster_walk_sfx.wav-ba907c8e9b3273defb33e5e1a5ca060a.sample"]
 
 [params]
 

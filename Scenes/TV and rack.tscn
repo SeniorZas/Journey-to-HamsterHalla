@@ -1,7 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dikfy8f3iagte"]
 
 [ext_resource type="PackedScene" uid="uid://d2swsjpgj3gy2" path="res://Scenes/TV.tscn" id="1_coqau"]
-[ext_resource type="ArrayMesh" uid="uid://b2n5pflvosbi2" path="res://Models/tv_rack.obj" id="2_5r3k5"]
+[ext_resource type="ArrayMesh" uid="uid://b2n5pflvosbi2" path="res://Models/TV/tv_rack.obj" id="2_5r3k5"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oya02"]
 size = Vector3(1.04736, 1.76123, 1)

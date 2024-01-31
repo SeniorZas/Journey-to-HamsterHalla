@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://byrahb6o4tyt4"
-path="res://.godot/imported/hampter.glb-2dc837e73cb42d93db6ea9c8063bd22f.scn"
+uid="uid://dd7q7s8c5vhrd"
+path="res://.godot/imported/scene.gltf-556382bd6eb5c3e7feab01b2333cb73b.scn"
 
 [deps]
 
-source_file="res://Models/hampter.glb"
-dest_files=["res://.godot/imported/hampter.glb-2dc837e73cb42d93db6ea9c8063bd22f.scn"]
+source_file="res://Models/Coffee table (Unused)/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-556382bd6eb5c3e7feab01b2333cb73b.scn"]
 
 [params]
 

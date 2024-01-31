@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://88yc561vvocy"
-path="res://.godot/imported/Jaula.glb-635dcda16b3a4f8672bf3675ac2fd355.scn"
+uid="uid://d25dxd848hjs0"
+path="res://.godot/imported/Mesa.glb-b933366d5188a8c78fd8972dcabc0bb9.scn"
 
 [deps]
 
-source_file="res://Models/lamp/Jaula.glb"
-dest_files=["res://.godot/imported/Jaula.glb-635dcda16b3a4f8672bf3675ac2fd355.scn"]
+source_file="res://Models/Table (Unused)/Mesa.glb"
+dest_files=["res://.godot/imported/Mesa.glb-b933366d5188a8c78fd8972dcabc0bb9.scn"]
 
 [params]
 
