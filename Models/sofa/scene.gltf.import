@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://djxpp3l1u72cn"
-path="res://.godot/imported/scene.gltf-ebe93b01026b37b164a0548d0c6081c1.scn"
+path="res://.godot/imported/scene.gltf-c660b941f6a22002349edef269708109.scn"
 
 [deps]
 
-source_file="res://Models/sofa/scene.gltf"
-dest_files=["res://.godot/imported/scene.gltf-ebe93b01026b37b164a0548d0c6081c1.scn"]
+source_file="res://Models/Sofa/scene.gltf"
+dest_files=["res://.godot/imported/scene.gltf-c660b941f6a22002349edef269708109.scn"]
 
 [params]
 

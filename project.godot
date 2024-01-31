@@ -10,14 +10,14 @@ config_version=5
 
 [application]
 
-config/name="Proyecto Version 1.0.3"
+config/name="Journey to Hamster-halla"
 run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://ASSETSVIEJOS/icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
+Global="*res://Scripts/global.gd"
 
 [filesystem]
 
@@ -84,7 +84,3 @@ Interact={
 [physics]
 
 2d/default_gravity=2500.0
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"

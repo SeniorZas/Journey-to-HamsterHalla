@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://b01e62h0ro84a"]
 
-[ext_resource type="ArrayMesh" uid="uid://b2n5pflvosbi2" path="res://Models/tv_rack.obj" id="1_hd5iv"]
+[ext_resource type="ArrayMesh" uid="uid://b2n5pflvosbi2" path="res://Models/TV, Playbox and Remote/tv_rack.obj" id="1_hd5iv"]
+
 
 [node name="Node3D" type="Node3D"]
 

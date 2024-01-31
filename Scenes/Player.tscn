@@ -1,10 +1,11 @@
 [gd_scene load_steps=29 format=3 uid="uid://dm28p040y72tl"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ublfp"]
-[ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
-[ext_resource type="AudioStream" uid="uid://br3drgtxmm7hg" path="res://Scenes/Music/Hamster_walk_sfx.wav" id="3_8qb7f"]
-[ext_resource type="AudioStream" uid="uid://b4dikwwhsfhjf" path="res://Scenes/Music/Hamster_jump_sfx.wav" id="4_5rn7f"]
-[ext_resource type="AudioStream" uid="uid://46h146dmwbwl" path="res://Scenes/Music/Hamster_explosion_sfx.wav" id="5_a440a"]
+[ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://Global Textures/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
+[ext_resource type="AudioStream" uid="uid://br3drgtxmm7hg" path="res://Audio/SFX/Hamster_walk_sfx.wav" id="3_8qb7f"]
+[ext_resource type="AudioStream" uid="uid://b4dikwwhsfhjf" path="res://Audio/SFX/Hamster_jump_sfx.wav" id="4_5rn7f"]
+[ext_resource type="AudioStream" uid="uid://46h146dmwbwl" path="res://Audio/SFX/Hamster_explosion_sfx.wav" id="5_a440a"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljlqn"]
 albedo_texture = ExtResource("2_6rj66")
