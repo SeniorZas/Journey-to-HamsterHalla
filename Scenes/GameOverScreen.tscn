@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/GameOverScreen.gd" id="1_hbpwk"]
 [ext_resource type="Texture2D" uid="uid://bfaifrligdj4t" path="res://Global Textures/hamterwings.jpg" id="2_oo4yh"]
 
-
 [node name="EndScreen" type="Control"]
 process_mode = 3
 layout_mode = 3

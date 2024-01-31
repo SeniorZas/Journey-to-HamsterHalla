@@ -1,7 +1,7 @@
 extends StaticBody3D
 
-@onready var explosión = $Tv/explosión
-@onready var raycast = $RayCast3D
+@onready var explosión = $"explosión"
+
 
 
 
