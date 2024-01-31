@@ -3,9 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_pk6wl"]
 [ext_resource type="Texture2D" uid="uid://b003duvvuryds" path="res://Global Textures/OIG4.png" id="2_6a57r"]
 [ext_resource type="AudioStream" uid="uid://dmib3jyhi4u4" path="res://Audio/Background Music/Main_Menu_Music.wav" id="3_aqvoc"]
-
-[sub_resource type="SystemFont" id="SystemFont_akyrs"]
-font_names = PackedStringArray("Roboto")
+[ext_resource type="FontFile" uid="uid://cwvv8k88ii81j" path="res://Fonts/Valhalla Normal/Valhalla Normal.ttf" id="3_sgqrs"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -38,6 +36,21 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 60
 
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_sgqrs")
+theme_override_font_sizes/font_size = 63
+text = "Journey 
+to 
+Hamster-halla"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Separador" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -46,19 +59,6 @@ layout_mode = 2
 
 [node name="Separador3" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = SubResource("SystemFont_akyrs")
-theme_override_font_sizes/font_size = 64
-text = "The Journey to Hamster-halla"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2

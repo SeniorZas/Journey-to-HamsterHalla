@@ -17,8 +17,7 @@ const raylength=10
 @onready var playermodel = $hampter
 @onready var hitbox = $CollisionShape3D
 @onready var head = $Head
-@onready var camera = $Head/Camera3D
-@onready var text = $Head/Camera3D/Label3D 
+@onready var text = $Head/SpringArm3D/Camera3D/Label3D
 @onready var raycast1 = $Raycasts/Raycast1
 @onready var raycast2 = $Raycasts/Raycast2
 @onready var raycast3 = $Raycasts/Raycast3
@@ -28,9 +27,9 @@ const raylength=10
 @onready var staminaBar2 = $StaminaBar2
 @onready var interactableTV = false
 @onready var tv_explosion = $"res://Scenes/TV and rack/TV/Tv/explosión"
-@onready var walkingSound = $SexArea/Walk
-@onready var jumpSound = $SexArea/Jump
-@onready var explosionSound = $SexArea/Explosion
+@onready var walkingSound = $SFX/Walk
+@onready var jumpSound = $SFX/Jump
+@onready var explosionSound = $SFX/Explosion
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -41,7 +40,6 @@ func _ready()->void:
 	explosion.visible=false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	staminaBar.value = stamina
-	#text.text= str(stamina)
 	pass
 	
 # Movimiento de camara
@@ -108,7 +106,6 @@ func _physics_process(delta):
 		else:
 			SPEED=12
 		stamina-=1
-		#text.text = str(stamina)
 		if stamina<=-100:
 			is_dead()
 	else:
@@ -120,7 +117,6 @@ func _physics_process(delta):
 				SPEED=5
 			SPEED=5
 			stamina+=1
-			#text.text= str(stamina)
 		
 	staminaBar.value = stamina
 	staminaBar2.value = stamina

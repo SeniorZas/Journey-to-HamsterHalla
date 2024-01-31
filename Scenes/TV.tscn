@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2swsjpgj3gy2"]
+[gd_scene load_steps=14 format=3 uid="uid://d2swsjpgj3gy2"]
 
 [ext_resource type="Script" path="res://Scripts/TV.gd" id="1_24uew"]
 [ext_resource type="Texture2D" uid="uid://6qpxg1aa273b" path="res://Models/TV, Playbox and Remote/textures/Material.001_baseColor.png" id="1_lbiha"]
 [ext_resource type="Texture2D" uid="uid://buxn48l5r7d0y" path="res://Models/TV, Playbox and Remote/textures/Material.001_metallicRoughness.png" id="2_r1soc"]
 [ext_resource type="Texture2D" uid="uid://d1qm3rpnpdovn" path="res://Global Textures/black-color-solid-background-1920x1080.png" id="3_uk22k"]
 [ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://Global Textures/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="4_ymxjn"]
-
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkkaj"]
 resource_name = "Material.001"
@@ -58,32 +57,44 @@ albedo_texture = ExtResource("3_uk22k")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brb8u"]
 albedo_texture = ExtResource("4_ymxjn")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a7q06"]
+size = Vector3(2.30662, 1.33829, 0.115112)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2le1o"]
+size = Vector3(0.138672, 0.216446, 0.523926)
+
 [node name="Sketchfab_Scene" type="StaticBody3D"]
 script = ExtResource("1_24uew")
 
-[node name="Tv" type="Node3D" parent="."]
+[node name="Tv_Material_001_0" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.71171, 1.14763e-15, -8.74228e-08, 1.49642e-07, -1.31273e-08, 1, 3.32273e-23, 0.0805749, 1.62921e-07, 0, 0, 0)
-
-[node name="Tv_Material_001_0" type="MeshInstance3D" parent="Tv"]
 mesh = SubResource("ArrayMesh_dkw0q")
 skeleton = NodePath("")
 
-[node name="black" type="Node3D" parent="Tv"]
-transform = Transform3D(1.17741, -1.13687e-13, -4.20396e-21, 7.50833e-20, -5.29424e-08, 1, -2.27374e-13, -1.21116, -4.37114e-08, 5.78638e-08, 0.864388, 1.13295)
+[node name="black" type="Node3D" parent="."]
+transform = Transform3D(2.01538, 1.05883e-07, 4.969e-15, 1.7619e-07, -1.21116, -5.68387e-08, -3.0955e-20, -2.01589e-07, 0.0805749, 3.90799e-13, 1.13295, 0.0696482)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tv/black"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="black"]
 transform = Transform3D(1.56051, 1.21932e-26, -1.48545e-21, -2.84217e-14, 1.56051, 0, 2.34092e-21, 0, 1.56051, 0, 0.918408, -0.127817)
 material_override = SubResource("StandardMaterial3D_o4bma")
 mesh = SubResource("QuadMesh_6kcxu")
 
-[node name="explosión" type="Node3D" parent="Tv"]
-transform = Transform3D(1.17741, -1.13687e-13, -4.20396e-21, 7.50833e-20, -5.29424e-08, 1, -2.27374e-13, -1.21116, -4.37114e-08, 5.78638e-08, 0.864388, 1.13295)
+[node name="explosión" type="Node3D" parent="."]
+transform = Transform3D(2.01538, 1.05883e-07, 4.969e-15, 1.7619e-07, -1.21116, -5.68387e-08, -3.0955e-20, -2.01589e-07, 0.0805749, 3.90799e-13, 1.13295, 0.0696482)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tv/explosión"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="explosión"]
 transform = Transform3D(1.56051, 1.21932e-26, -1.90897e-21, -2.84217e-14, 1.56051, 0, 1.60391e-20, 0, 1.56051, 0, 0.918408, -0.127817)
 material_override = SubResource("StandardMaterial3D_brb8u")
 mesh = SubResource("QuadMesh_6kcxu")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -2.27874, 0.522733)
-debug_shape_custom_color = Color(1, 0.0509804, 0, 1)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.48373, 0, 0, 0, 1.48373, 0, 0, 0, 1.48373, 0.000236845, 0.0105458, 0.0102332)
+shape = SubResource("BoxShape3D_a7q06")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4199, -1.10343, 0.00370336)
+shape = SubResource("BoxShape3D_2le1o")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47457, -1.10343, 0.00370336)
+shape = SubResource("BoxShape3D_2le1o")
