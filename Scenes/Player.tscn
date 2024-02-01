@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_ublfp"]
 [ext_resource type="Texture2D" uid="uid://chucb1571pjjt" path="res://Global Textures/pngtree-fire-explosion-blast-flame-png-transparent-png-image_4199261.jpg" id="2_6rj66"]
-[ext_resource type="AudioStream" uid="uid://br3drgtxmm7hg" path="res://Audio/SFX/Hamster_walk_sfx.wav" id="3_8qb7f"]
-[ext_resource type="AudioStream" uid="uid://b4dikwwhsfhjf" path="res://Audio/SFX/Hamster_jump_sfx.wav" id="4_5rn7f"]
-[ext_resource type="AudioStream" uid="uid://46h146dmwbwl" path="res://Audio/SFX/Hamster_explosion_sfx.wav" id="5_a440a"]
+[ext_resource type="AudioStream" uid="uid://c4moyc3aax80v" path="res://Audio/SFX/Hamster_walk_sfx.mp3" id="3_msnv6"]
+[ext_resource type="AudioStream" uid="uid://uo5au051on24" path="res://Audio/SFX/Hamster_jump_sfx.wav" id="4_5rn7f"]
+[ext_resource type="AudioStream" uid="uid://bohubatadhtrl" path="res://Audio/SFX/Hamster_explosion_sfx.mp3" id="5_a440a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljlqn"]
 albedo_texture = ExtResource("2_6rj66")
@@ -551,20 +551,20 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999808, 0.0196242, -2.48299e-08, -0.0196242, 0.999807, -2.14495e-09, 2.4783e-08, 2.63181e-09, 1, 4.45155e-08, 1.79658, -1.65716e-11)
 bones/1/enabled = true
 bones/1/position = Vector3(4.45155e-08, 1.79658, -1.65716e-11)
-bones/1/rotation = Quaternion(1.19425e-09, -1.24038e-08, -0.00981258, 0.999952)
+bones/1/rotation = Quaternion(0.0996809, 0.0197846, -0.14586, 0.984072)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.003"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.979711, -0.200416, -3.29818e-08, 0.200416, 0.979711, 1.56125e-08, 2.91837e-08, -2.19058e-08, 1, -1.35225e-10, 0.513091, 2.62421e-10)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.35225e-10, 0.513091, 2.62421e-10)
-bones/2/rotation = Quaternion(-9.4275e-09, -1.56208e-08, 0.10072, 0.994915)
+bones/2/rotation = Quaternion(-0.111924, -0.307103, 0.0714634, 0.942366)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.004.L"
 bones/3/parent = 0
 bones/3/rest = Transform3D(0.242052, -0.889405, 0.387776, 0.970258, 0.220521, -0.0998507, 0.00329459, 0.400412, 0.916329, -0.670074, 1.42521, 0.561038)
 bones/3/enabled = true
-bones/3/position = Vector3(-0.670074, 1.42521, 0.561037)
+bones/3/position = Vector3(-0.670074, 1.42521, 0.561038)
 bones/3/rotation = Quaternion(0.162173, 0.12464, 0.602859, 0.771185)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Bone.005.L"
@@ -606,7 +606,7 @@ bones/9/name = "Bone.006.R"
 bones/9/parent = 0
 bones/9/rest = Transform3D(-0.260952, -0.953841, -0.148634, 0.964216, -0.250071, -0.0880395, 0.0468066, -0.166289, 0.984965, -0.173859, 0.0336189, -0.6287)
 bones/9/enabled = true
-bones/9/position = Vector3(-0.173859, 0.033619, -0.6287)
+bones/9/position = Vector3(-0.173859, 0.0336189, -0.6287)
 bones/9/rotation = Quaternion(-0.0322266, -0.0804905, 0.789935, 0.60703)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "Bone.007.R"
@@ -674,13 +674,19 @@ shape = SubResource("SphereShape3D_t8inn")
 [node name="SFX" type="Node3D" parent="."]
 
 [node name="Walk" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("3_8qb7f")
+stream = ExtResource("3_msnv6")
+volume_db = -10.0
 
 [node name="Jump" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_5rn7f")
+volume_db = -12.0
 
 [node name="Explosion" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_a440a")
+volume_db = -5.0
+
+[node name="Timer" type="Timer" parent="SFX"]
+one_shot = true
 
 [connection signal="area_entered" from="InteractuableCollider" to="." method="_on_sex_area_area_entered"]
 [connection signal="area_exited" from="InteractuableCollider" to="." method="_on_sex_area_area_exited"]

@@ -40,7 +40,6 @@ func _ready()->void:
 	explosion.visible=false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	staminaBar.value = stamina
-	pass
 	
 # Movimiento de camara
 func _input(event: InputEvent) -> void:
@@ -51,6 +50,7 @@ func _input(event: InputEvent) -> void:
 	pass
 	
 func is_dead():
+	walkingSound.stop()
 	explosionSound.play()
 	playermodel.visible=false
 	isdead=true
@@ -62,9 +62,6 @@ func is_dead():
 	pass
 
 func _physics_process(delta):
-	# Respawn
-	#if Input.is_key_pressed(KEY_ENTER):
-	#	get_tree().reload_current_scene()	
 	
 	if not is_on_floor():
 		JUMP_VELOCITY=4.5
@@ -109,7 +106,6 @@ func _physics_process(delta):
 		if stamina<=-100:
 			is_dead()
 	else:
-	
 		if stamina<300 && playermodel.visible == true:
 			if isRotated:
 				SPEED=0
@@ -120,6 +116,7 @@ func _physics_process(delta):
 		
 	staminaBar.value = stamina
 	staminaBar2.value = stamina
+	
 	if staminaBar.value <= 0:
 		staminaBar.hide()
 		staminaBar2.show()
@@ -142,15 +139,18 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	if !input_dir:
-		walkingSound.play()
-	if not is_on_floor():
-		walkingSound.stop()
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction != Vector3():
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		if $SFX/Timer.time_left <=0 and is_on_floor():
+			walkingSound.pitch_scale = randf_range(0.8, 1)
+			walkingSound.play()
+			$SFX/Timer.start(0.4)
+		if not is_on_floor():
+			walkingSound.stop()
 	else:
+		walkingSound.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
@@ -167,6 +167,3 @@ func _on_sex_area_area_entered(area):
 func _on_sex_area_area_exited(area):
 	$Label3D.text = ""
 	interactableTV = false
-
-		
-
