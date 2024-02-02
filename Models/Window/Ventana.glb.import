@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bo1nbcm8q0ca0"
-path="res://.godot/imported/Ventana.glb-0e0d8709198246ff3bcbe8d57f485ab6.scn"
+path="res://.godot/imported/Ventana.glb-17148c1d8aba5a0a174f9bfa1562047a.scn"
 
 [deps]
 
-source_file="res://Models/Window/Ventana.glb"
-dest_files=["res://.godot/imported/Ventana.glb-0e0d8709198246ff3bcbe8d57f485ab6.scn"]
+source_file="res://Models/window/Ventana.glb"
+dest_files=["res://.godot/imported/Ventana.glb-17148c1d8aba5a0a174f9bfa1562047a.scn"]
 
 [params]
 

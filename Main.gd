@@ -10,14 +10,16 @@ var paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	tv_explosion.visible = false
-	pass # Replace with function body.
+	if Global.pressedButton == true:
+		Global.pressedButton = false
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if tv_explosion.visible == true:
+	if Global.pressedButton == true:
 		$CharacterBody3D.is_dead()
+		
 	if Input.is_action_just_pressed("pause") :
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pauseMenu()

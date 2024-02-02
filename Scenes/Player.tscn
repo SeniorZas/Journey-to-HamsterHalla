@@ -490,23 +490,17 @@ script = ExtResource("1_ublfp")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.0202243, -0.00582182)
 
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1.5873, 0, 0, 0, 1.43387, 0.680849, 0, -0.680849, 1.43387, 0, 4.0572, 3.40632)
+fov = 64.3246
+
+[node name="Label3D" type="Label3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999818, 0.0190926, 0, -0.0190926, 0.999818, -0.857705, -0.689309, -1.34114)
+
 [node name="SpringArm3D" type="SpringArm3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.731354, 0.681998, 0, -0.681998, 0.731354, 0, 0.411613, -0.504365)
 spring_length = 5.35
 margin = 0.5
-
-[node name="Camera3D" type="Camera3D" parent="Head/SpringArm3D"]
-transform = Transform3D(1.5873, 0, 0, 0, 1.513, -0.479952, 0, 0.479952, 1.513, 0, -0.000861764, 5.34638)
-fov = 64.3246
-
-[node name="Label3D" type="Label3D" parent="Head/SpringArm3D/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999818, 0.0190926, 0, -0.0190926, 0.999818, -0.857705, -0.689309, -1.34114)
-
-[node name="RayCast3D" type="RayCast3D" parent="Head"]
-transform = Transform3D(8.18786e-08, 2.0354e-07, -1.17463, 2.69513, -3.23632, 0, -1.87316, -4.65646, -5.13446e-08, 0, 0.406683, -0.743939)
-
-[node name="Node3D" type="Node3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.646, 3.911)
 
 [node name="EXPLOSION" type="Node3D" parent="."]
 transform = Transform3D(1.96455, 0, 0, 0, 1.96455, 0, 0, 0, 1.96455, 0, 0, 0)
@@ -558,7 +552,7 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(0.979711, -0.200416, -3.29818e-08, 0.200416, 0.979711, 1.56125e-08, 2.91837e-08, -2.19058e-08, 1, -1.35225e-10, 0.513091, 2.62421e-10)
 bones/2/enabled = true
 bones/2/position = Vector3(-1.35225e-10, 0.513091, 2.62421e-10)
-bones/2/rotation = Quaternion(-0.111924, -0.307103, 0.0714634, 0.942366)
+bones/2/rotation = Quaternion(0.138696, -0.130668, -0.0476017, 0.980522)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.004.L"
 bones/3/parent = 0
