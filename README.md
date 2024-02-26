@@ -1,2 +1,3 @@
-# Global Game Jam USEK 2024
+# Journey to HamsterHalla
+Videogame developed in 3 days in GGJ Santiago CL 2024
  
