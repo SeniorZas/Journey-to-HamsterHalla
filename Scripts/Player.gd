@@ -47,7 +47,6 @@ func _input(event: InputEvent) -> void:
 		rotate_y(deg_to_rad(-event.relative.x * sense))
 		head.rotate_x(deg_to_rad(-event.relative.y * sense))
 		
-	pass
 	
 func is_dead():
 	walkingSound.stop()
@@ -56,10 +55,8 @@ func is_dead():
 	isdead=true
 	SPEED = 0
 	explosion.visible = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
-	#get_tree().quit()
-	pass
 
 func _physics_process(delta):
 	

@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://m0yho8c8oprw" path="res://Global Textures/dif.jpg" id="14_l11en"]
 [ext_resource type="ArrayMesh" uid="uid://bl6kyiogrfy7m" path="res://Models/TV, Playbox and Remote/Remote Control.obj" id="15_a8c4g"]
 [ext_resource type="PackedScene" uid="uid://88yc561vvocy" path="res://Models/Cage/Jaula.glb" id="17_24yhv"]
-[ext_resource type="PackedScene" uid="uid://bo1nbcm8q0ca0" path="res://Models/Window/Ventana.glb" id="17_521ee"]
+[ext_resource type="PackedScene" uid="uid://bo1nbcm8q0ca0" path="res://Models/window/Ventana.glb" id="17_521ee"]
 [ext_resource type="AudioStream" uid="uid://4c1ylv0hhrc" path="res://Audio/Background Music/Main_Music.wav" id="18_ino75"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a7xad"]
@@ -235,7 +235,7 @@ mesh = SubResource("BoxMesh_ork12")
 shape = SubResource("ConcavePolygonShape3D_cbn2k")
 
 [node name="Pared Z-" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 36.9619, 0, 22.2444, 0, -1, 0, -1.61566e-06, -1.11291, 9.85594, -24.1426)
+transform = Transform3D(-4.37114e-08, 0, 36.9619, 0, 22.2444, 0, -1, 0, -1.61566e-06, -1.11291, 9.85594, -23.468)
 mesh = SubResource("BoxMesh_ork12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pared Z-"]
@@ -256,10 +256,11 @@ shape = SubResource("ConcavePolygonShape3D_cbn2k")
 transform = Transform3D(6.1, 0, 0, 0, 6.1, 0, 0, 0, 6.1, 12.1379, 0, -9.89217)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0491903, 16.9106, -0.453932)
-light_color = Color(0.996078, 0.74902, 0.603922, 1)
-light_energy = 10.329
-omni_range = 72.236
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0491903, 15.5361, -0.453932)
+light_color = Color(0.890196, 0.737255, 0.560784, 1)
+light_energy = 8.675
+shadow_enabled = true
+omni_range = 92.932
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_725tr")]
 transform = Transform3D(-0.926627, 0, 0.375982, 0, 1, 0, -0.375982, 0, -0.926627, 13.395, 5.06627, -20.3669)
@@ -392,8 +393,17 @@ transform = Transform3D(1.43408e-10, 0, -0.01, 0, 0.0110051, 0, 0.012026, 0, 1.1
 transform = Transform3D(-4.46166e-08, 0, 1.02071, 0, 1.02071, 0, -1.02071, 0, -4.46166e-08, -17.8347, 5.85688, -13.4109)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.09813e-07, 7.0877, -6.19626e-07, 7.0877, -3.09813e-07, 0, -2.70847e-14, -6.19626e-07, -7.0877, -18.9131, 5.6834, -13.9294)
+transform = Transform3D(3.09813e-07, 7.0877, -6.19626e-07, 7.0877, -3.09813e-07, 0, -2.70847e-14, -6.19626e-07, -7.0877, -17.8639, 5.6834, -13.9294)
 mesh = SubResource("PlaneMesh_2sgvx")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0905109, 0.995895, 0, -0.995895, -0.0905109, 12.1449, 7.1644, -10.5461)
+light_energy = 14.73
+light_indirect_energy = 6.232
+light_volumetric_fog_energy = 5.0
+light_size = 0.135
+spot_range = 11.793
+spot_angle = 29.3824
 
 [editable path="Lamp"]
 [editable path="Bookshelf"]
